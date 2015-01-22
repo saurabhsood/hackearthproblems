@@ -17,7 +17,7 @@ public class GirlfDemands {
 	        String arr[] =br.readLine().split(" ");
 	        if(Integer.parseInt(arr[0])>= product.length() && Integer.parseInt(arr[1]) >= product.length())
 	        {
-	        	int a = Integer.parseInt(arr[0]
+	        	int a = Integer.parseInt(arr[0]);
 	        }
 	        else
 	        {
