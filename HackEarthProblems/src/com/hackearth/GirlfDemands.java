@@ -1,29 +1,33 @@
 package com.hackearth;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class GirlfDemands {
 	
 	public static void main(String s[]) throws IOException
 	{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String product = br.readLine();
-		char a[] = product.toCharArray();
-	     String line = br.readLine();	     
-	     int N = Integer.parseInt(line);
+		Scanner sc = new Scanner(System.in);
+		String product = sc.next();
+		char a[] = product.toCharArray();    
+	     int N = sc.nextInt();
+	     int length = product.length();
 	     for (int i = 0; i < N; i++) {
-	        String arr[] =br.readLine().split(" ");
-	        if(Integer.parseInt(arr[0])>= product.length() && Integer.parseInt(arr[1]) >= product.length())
-	        {
-	        	int a = Integer.parseInt(arr[0]);
-	        }
-	        else
-	        {
-	        	
-	        }
+	    	 
+	        long one = sc.nextLong();
+	        long two = sc.nextLong();	        	
+	        if(one > length)
+	        {	        	
+	        	one = one % length;
+	        	one = one == 0 ? length:one;
+	        }	        
+	        if(two > length)
+	        {	        	
+	        	two = two % length;
+	        	two = two == 0 ? length:two;
+	        }	        
+	        System.out.println(a[(int)(one -1)] == a[(int)(two -1)]?"Yes":"No");
 	     }
-
+	     sc.close();
 	}	 
 }
