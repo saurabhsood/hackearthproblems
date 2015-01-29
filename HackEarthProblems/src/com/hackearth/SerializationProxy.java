@@ -1,6 +1,4 @@
 package com.hackearth;
-import Test;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
