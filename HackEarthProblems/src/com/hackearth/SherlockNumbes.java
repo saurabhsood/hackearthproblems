@@ -7,8 +7,8 @@ import java.util.List;
 
 public class SherlockNumbes {
 
-    public static void main(String args[] ) throws Exception {
-			
+	public static void main(String args[] ) throws Exception {
+		
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line = br.readLine();
@@ -17,32 +17,36 @@ public class SherlockNumbes {
         for (int i = 0; i < N; i++) {
         	line = br.readLine();
         	String a[]=line.split(" ");
-        	int no=Integer.valueOf(a[0]);        	
-        	int p = Integer.valueOf(a[2]);
-        	List<Integer> l = new ArrayList<Integer>();
-        	for (int j =1; j <= no;j++)
-        	{
-        		l.add(j);
-        	}
-        	a = br.readLine().split(" ");
-        	
-        	for (int j =0; j < a.length;j++)
-        	{
-        		if((l.size()+1) > (Integer.valueOf(a[j])-j))
-        		l.remove(Integer.valueOf(a[j])-1-j);
-        	}        	
-        	if((l.size()+1) <= p)
+        	int no=Integer.valueOf(a[0]);
+        	int k = Integer.valueOf(a[1]);
+        	int p = Integer.valueOf(a[2]);        	
+        	a = br.readLine().split(" ");        	
+        	if((no-k) <= p)
         	{
         		out = out+"-1"+"\n";
         	}
         	else
         	{
-        		out= out+l.get(p-1)+"\n";
+        		int length = a.length;
+        		boolean found = false;;
+        		for (int j =0; j < length;j++)
+            	{
+        			int value=Integer.valueOf(a[j]);
+        			if(value > p+j )
+            		{                 			
+            			out= out+(p+j)+"\n";
+            			found = true;
+            			break;
+            			
+            		}             		
+            	} 
+        		if(!found)
+        			out= out+(no-k)+"\n";
+        		
         	}
         }
 
         	System.out.println(out);
     }
-	
 	
 }
