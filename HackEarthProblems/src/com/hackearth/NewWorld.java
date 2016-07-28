@@ -21,22 +21,21 @@ public class NewWorld {
 	        	line = br.readLine();
 	        	a = line.split(" ");
 	        	int diff = n/k;
-	        	int max = 0;
+	        	long max = 0;
+	        	long last = Long.valueOf(a[0]);
 	        	if(diff==a.length)
 	        		diff = diff-1;
-	        	for(int j= 0; j < k;j= j++)
+	        	for(int j= n-1; j > 0;j= j- diff)
 	        	{
-	        		
-	        		int local = Integer.valueOf(a[j]) - Integer.valueOf(a[j-diff]);
+	        		long local = Long.valueOf(a[j]) - last;
+	        		last=Long.valueOf(a[j]);
 	        		if(local > max)
 	        			max = local;
 	        		k--;
-	        		if(k == 1 && ((j+diff <= a.length)  || (j+diff > a.length)))
+	        		if(k==1)
 	        		{
-	        			diff= a.length-j-1;	  
-	        			
+	        			diff= j-1;
 	        		}
-	        		
 	        	}
 	        	output = output+max+"\n";
 	        }
